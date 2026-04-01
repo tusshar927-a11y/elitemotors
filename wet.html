@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Motors | Luxury Car Sale</title>
+    <style>
+        :root { --accent: #d4af37; --dark: #0f0f0f; --white: #ffffff; --gray: #f8f8f8; }
+        body { font-family: 'Garamond', serif; margin: 0; padding: 0; scroll-behavior: smooth; color: #1a1a1a; background: var(--gray); }
+        
+        /* Navigation */
+        header { background: var(--dark); color: var(--white); padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--accent); }
+        .logo { font-size: 1.8rem; letter-spacing: 4px; font-weight: bold; color: var(--accent); }
+        nav a { color: var(--white); text-decoration: none; margin-left: 25px; font-weight: 400; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover { color: var(--accent); }
+
+        section { padding: 80px 10%; }
+
+        /* Home Section - Updated with Cullinan */
+        #home { 
+            height: 85vh; 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com') center/cover; 
+            color: var(--white); 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; 
+        }
+        #home h1 { font-size: 4rem; margin-bottom: 5px; letter-spacing: 3px; }
+        .btn-gold { background: var(--accent); color: var(--dark); padding: 15px 40px; text-decoration: none; font-weight: bold; text-transform: uppercase; margin-top: 20px; transition: 0.4s; }
+        .btn-gold:hover { background: var(--white); }
+
+        /* Inventory */
+        .inventory-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .car-card { background: var(--white); border: 1px solid #eee; padding: 10px; text-align: center; transition: 0.3s; }
+        .car-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .car-card img { width: 100%; height: 220px; object-fit: cover; }
+        .car-card p { font-size: 1.3rem; color: var(--accent); margin: 10px 0; }
+
+        /* Specs Section - Featuring your requested Car */
+        #details { background: var(--white); }
+        .details-container { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
+        .details-container img { width: 100%; border: 1px solid #ddd; box-shadow: 15px 15px 0px var(--accent); }
+        .spec-table { width: 100%; border-collapse: collapse; margin-top: 25px; font-size: 1.1rem; }
+        .spec-table th, .spec-table td { text-align: left; padding: 15px 5px; border-bottom: 1px solid #eee; }
+        .spec-table th { color: #888; font-weight: normal; }
+
+        /* About & Contact */
+        .flex-box { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        form input, form textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; background: #fafafa; }
+        form button { background: var(--dark); color: var(--accent); border: 1px solid var(--accent); padding: 15px; width: 100%; cursor: pointer; font-weight: bold; }
+
+        @media (max-width: 900px) { .details-container, .flex-box { grid-template-columns: 1fr; } #home h1 { font-size: 2.5rem; } }
+        #pageUp{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+
+    background: rgba(120,120,120,0.3); /* transparent grey */
+    color: var(--accent);
+    border: 2px solid var(--accent);
+
+    display: none;
+    cursor: pointer;
+    font-size: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    backdrop-filter: blur(4px); /* glass effect */
+    transition: 0.3s;
+}
+
+#pageUp:hover{
+    background: rgba(212,175,55,0.9); /* gold on hover */
+    color: var(--dark);
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ELITE MOTORS</div>
+        <nav>
+            <a href="http://127.0.0.1:5500/cars1.html#home">Home</a>
+            <a href="http://127.0.0.1:5500/cars1.html#inventory">Current Showcase</a>
+            <a href="http://127.0.0.1:5500/cars1.html#about">Our Story</a>
+            <a href="http://127.0.0.1:5500/cars1.html#contact">Inquire</a>
+        </nav>
+    </header>
+    <section id="details">
+        <div class="details-container">
+            <div>
+                <!-- Featured image of the Rolls-Royce Cullinan -->
+                <img src="cars.jpeg" alt="White Rolls-Royce Cullinan">
+            </div>
+            <div>
+                <h4 style="color:var(--accent); margin-bottom:0;">FEATURED MODEL</h4>
+                <h2 style="font-size: 2.5rem; margin-top:10px;">Rolls-Royce Cullinan</h2>
+                <p>An icon of craftsmanship, combining the world-renowned Rolls-Royce luxury with all-terrain capability</p>
+                <table class="spec-table">
+                    <tr><th>Engine</th><td>6.75-litre twin-turbocharged V12 engine</td></tr>
+                    <tr><th>Power</th><td>563 hp @ 5,000 rpm</td></tr>
+                    <tr><th>Acceleration</th><td>0-100 km/h in 5.2s</td></tr>
+                    <tr><th>Interior</th><td>Bespoke Leather & Wood</td></tr>
+                    <tr><th>Wheels</th><td>22-inch 7-Spoke Polished</td></tr>
+                </table>
+                <br>
+                <a href="http://127.0.0.1:5500/cars1.html#contact" class="btn-gold" style="display:block; text-align:center;">Request Private Viewing</a>
+                <a href="http://127.0.0.1:5500/cars1.html#inventory" class="btn-gold" style="display:block; text-align:center;">Explore Other Options</a>
+            </div>
+        </div>
+    </section>
+    <button id="pageUp">↑</button>
+    <script>
+let pageUp = document.getElementById("pageUp");
+
+window.onscroll = function() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        pageUp.style.display = "block";
+    } else {
+        pageUp.style.display = "none";
+    }
+};
+
+pageUp.onclick = function(){
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+};
+</script>
+
+</body>
+</html>
